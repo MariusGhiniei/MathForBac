@@ -1,0 +1,302 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}  
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate}
+\usepackage{algorithm} % Boxes/formatting around algorithms
+\usepackage[noend]{algpseudocode} % Algorithms
+\usepackage{hyperref}
+\usepackage{stmaryrd}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+\def\Name{Marius G.}  % Your name
+\def\Session{}
+
+
+\title{Rezolvarea Subiectului III - Rolul derivatelor}
+\author{\Name}
+\date{}
+\pagestyle{myheadings}
+
+
+\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
+\def\endproofmark{$\Box$}
+\newenvironment{proof}{\par{\bf Proof}:}{\endproofmark\smallskip}
+\newcommand\defi{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
+\newcommand\conv{\stackrel{\mathclap{\normalfont\mbox{conventie}}}{=}}
+
+
+\textheight=9in
+\textwidth=6.5in
+\topmargin=-.75in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+
+
+\begin{document}
+\maketitle
+
+\section*{Cu ce ne ajuta derivatele?}
+    \begin{flushleft}
+        \qquad Rolul primei derivate a unei functii $f$ ne este utila in a studia \textbf{monotonia} ( 
+        crescatoare sau descrescatoare) si punctele de extrem pentru $f$.( adica puncte de maxim si minim)
+    \end{flushleft}
+    
+    \begin{flushleft}
+        \qquad Rolul derivatei de ordin 2 ne ajuta sa calculam punctele de \textbf{inflexiune}
+        ( daca ele exista) si pentru a determina daca $f$ este \textbf{convexa} sau \textbf{concava}
+        pe un interval.
+    \end{flushleft}
+
+\section*{Definitia derivatei cu limita}
+    \begin{flushleft}
+    \qquad Spunem despre o functie $f(x)$ ca este derivabila intr-un punct $x_0$ daca:
+        \[ \exists \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} = L \]
+         $\dagger$ Daca $L = \{-\infty, \infty\}$, atunci spunem ca $f$ are derivata dar nu este derivabila.
+        \newline
+        $\dagger$ Daca $L \in \mathbf{R}$( adica este finit) atunci $f$ este derivabila in $x_0$ si avem ca:
+        \[ \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} \stackrel{\textit{def}}{=} f(x_0)^\prime  \]
+    \end{flushleft}
+    
+\section*{Reguli de derivare}
+    \begin{flushleft}
+        \qquad Fie $f,g: \mathbf{R} \to  \mathbf{R}, f $ si $g$ functii derivabile. Atunci avem:  
+        \begin{enumerate}[(a).]
+            \item $ (f+g)^\prime = f^\prime + g^\prime$
+            \item $(f - g)^\prime = f^\prime - g^\prime$
+            \item $ (c \cdot f)^\prime = c\cdot f^\prime$, unde c este o constanta
+            \item $ (f\cdot g)^\prime\ = f^\prime \cdot g + f \cdot g^\prime $
+            \item $ \left( \frac{f}{g} \right) ^\prime = \frac{f^\prime \cdot g - f \cdot g^\prime}{g^2},
+            \, \, g(x) \neq 0 $
+        \end{enumerate} 
+    \end{flushleft}
+\newpage
+
+\section*{Monotonia unei functii}
+    \begin{flushleft}
+        \qquad Fie $f:I \to \mathbf{R}$, o functie derivabila pe I. Avem:
+        \begin{enumerate}[(a).]
+            \item   Daca $f(x)^\prime \geq 0$, atunci $f$ este crescatoare (pentru oricare x respecta
+            relatia).
+            \item   Daca $f(x)^\prime \leq 0$, atunci $f$ este descrescatoare (pentru oricare x respecta 
+                    relatia).
+            \item   Daca $f(x)^\prime > 0$, atunci $f$ este strict crescatoare (pentru oricare x respecta
+            relatia).
+            \item    Daca $f(x)^\prime < 0$, atunci $f$ este strict descrescatoare (pentru oricare x
+            respecta relatia).
+            \item   Daca $f(x)^\prime = 0$, atunci $f$ este constanta(pentru oricare x respecta relatia).
+        \end{enumerate}
+    \end{flushleft}
+
+\section*{Punct de extrem}
+    \begin{flushleft}
+        \qquad Spunem ca $x_0$ este punct de extrem( critic), daca respecta relatia $f(x_0)^\prime = 0$.
+    \end{flushleft}
+    
+\section*{Punct de inflexiune}
+    \begin{flushleft}
+        \qquad Spunem ca $x_0$ este punct de inflexiune, daca respecta relatia $f(x_0)'' = 0$.
+    \end{flushleft}
+
+\section*{Tabel de variatie(semn)}
+\begin{flushleft}
+    \qquad  De cele mai multe ori la Subiectul III, la analiza matematica de clasa a XI - a, trebuie sa  
+            facem un tabel. Cum il facem? \\
+    $\longrightarrow$ Daca am nevoie de monotonia lui $f(x)$, de puncte de minim/maxim, de aratat 
+    inegalitati, trebuie sa fac tabelul de variatie a lui $f(x)^\prime$. \\
+    $\longrightarrow$ Daca am nevoie de aratat convexitatea/concavitatea lui $f(x)$ pe un interval / tot
+    domeniul de definitie a lui $f$ sau trebuie sa arat ca are puncte de inflexiune( sau sa le si calculez),
+    trebuie sa fac tabelul de variatie a lui $f(x)''$.
+    
+    \subsection*{Pasii de urmat pentru tabelul cu $f(x)^\prime$}
+    \begin{enumerate}[1).]
+        \item   Calculam derivata de ordin 1. ($f(x)^\prime$)
+        \item   Egalam derivata cu 0 ($f(x)^\prime = 0)$ si determinam punctele de extrem, daca ele exista.
+        \item   Trasam tabelul si punem pe prima coloana ( $x, f(x)^\prime, f(x)$ ), ne uitam in enunt sa
+                vedem pe ce interval este definita functia $f$ si punem cele 2 capete pe primul rand din
+                tabel.
+        \item   Adaugam punctele de extrem( tot pe primul rand) si sub ele( adica pe randul cu $f(x)^\prime$
+                scriem 0.( pentru ca derivata in punctul de extrem face 0).
+        \item   Trebuie sa punem semnele, daca derivata noastra este de gradul 1 sau 2 ne putem folosi de 
+                tabele de variatie de semn din clasa a IX - a sau luam o valoare din intervalul la care
+                trebuie sa atasam un semn si inlocuim in $\mathbf{f(x)^\prime}$, ne intereseaza doar semnul 
+                ( adica daca e > 0 avem +, daca e < 0 avem -) nu si valoarea.
+        \item   Acum trebuie sa trasam sagetele de monotonie si avem: sageata in sus unde avem + si
+                sageata in jos unde avem -.
+        \item   Daca avem sageata sus urmata de sageata jos, atunci avem punct de maxim, daca avem sageata
+                jos urmata de sageata sus avem punct de minim( valorile pentru punctul de minim si cel de
+                maxim o sa se calculeze in \textbf{f(x)}.( x - ul il luam de pe primul rand, o sa observam
+                ca este de fapt punctul de extrem calculat la pasul 2).
+        \item   Ideal ar fi sa facem si limitele in cele 2 capete sa fim siguri ca nu "explodeaza" functia
+                intr-un capat.( Pasul acesta este necesar cand lucram cu valori ale lui $f(x)$, pentru 
+                exercitii unde trebuie aplicata monotonia \textbf{nu} este necesar). Daca avem de ex un
+                capat care nu
+                este infinit vom face limita laterala in acel punct( daca avem de exemplu: $(0, \infty)$
+                facem limita la stanga in 0 si limita la $\infty$).
+    \end{enumerate}
+
+    \subsubsection*{Interpretarea tabelului cu $f(x)^\prime$}
+    \qquad Am terminat tabelul, ce fac acum? \\
+    \qquad Vom interpreta tabelul, aici difera de la exercitiu la exercitiu, dar daca citim cu 
+            \textbf{atentie} enuntul vom lua punctaj maxim( ne uitam la ultima sectiune pentru diferite 
+            exemple).
+    \begin{enumerate}[I.]
+        \item   Unde avem + in tabel, $f$ este crescatoare. Daca sunt mai multe intervale in care $f$ este
+                crescatoare o sa unim intervalele prin reuniune ($\cup$).
+        \item   Unde avem - in tabel, $f$ este descrescatoare. Daca sunt mai multe intervale in care $f$
+                este descrescatoare o sa unim intervalele prin reuniune ($\cup$).
+        \item   Daca avem mai multe puncte de minim/maxim il vom alege pe cel mai mic/mare ca fiind cel
+                global( adica peste toata functia).
+        
+    \end{enumerate}
+
+    \subsection*{Pasii de urmat pentru tabelul cu $f(x)''$}
+        \begin{enumerate}[1).]
+            \item   Calculam derivata de ordin 1, apoi derivata de ordin 2.
+            \item   Egalam derivata de ordin 2 cu 0 ($f(x)'' = 0)$ si determinam punctele de inflexiune, 
+                    daca ele exista.
+            \item   Trasam tabelul si punem pe prima coloana ( $x, f(x)'', f(x)$ ), ne uitam in enunt
+                    sa vedem pe ce interval este definita functia $f$ si punem cele 2 capete pe primul rand
+                    din tabel.
+            \item   Adaugam punctele de inflexiune( tot pe primul rand) si sub ele( adica pe randul cu  
+                    $f(x)''$ scriem 0.( pentru ca derivata in punctul de inflexiune face 0).
+            \item   Trebuie sa adaugam semnele derivatei de ordin 2, luam o valoare din intervalul caruia
+                    trebuie sa ii atasam un semn si inlocuim in $f(x)''$ si ne intereseaza doar semnul nu
+                    si valoarea.
+            \item   Daca avem + pe randul cu $f(x)''$, pe randul cu $f(x)$ vom trasa un \textit{smile face} 
+                    \\
+                    Daca avem - pe randul cu $f(x)''$, pe randul cu $f(x)$ vom trasa un \textit{sad face} 
+                    
+        \end{enumerate}
+    
+\end{flushleft}
+\newpage
+    \subsubsection*{Interpretarea tabelului cu $f(x)''$}
+    \begin{enumerate}[I.]
+        \item   Unde avem + in tabel( smile face) $f$ este convexa. Daca sunt mai multe intervale in care
+                $f$ este convexa o sa le reunim( $\cup$).
+        \item   Unde avem - in tabel( sad face) $f$ este concava. Daca sunt mai multe intervale in care $f$
+                este concava o sa le reunim( $\cup$).
+        \item   Punctele de inflexiune sunt date de $f(x)'' = 0$, daca ne cere valoarea functiei in punctele
+                de inflexiune, inlocuim in $f(x)$ cu punctele respective.
+    \end{enumerate}
+    
+\section*{Calculul Asimptotelor}
+    \subsection*{Orizontala}
+        \begin{flushleft}
+        \qquad Fie $f:I \to \mathbf{R}$. Spunem ca dreapta $y = l$ este asimptota orizontala la graficul 
+        functiei $f$ spre
+        $ \pm \infty$, daca $l \in \mathbf{R}$ (adica daca l exista si este diferit de $\pm \infty$), unde
+        \[ l = \lim_{x \to \pm \infty} f(x)\]
+        \end{flushleft}
+    \subsection*{Oblica}
+        \begin{flushleft}
+            \qquad Fie $f:I \to \mathbf{R}$. Spunem ca dreapta $y = mx + n$ este asimptota oblica la 
+            graficul functiei 
+            $f$ spre $\pm \infty$ , daca $m,n \in \mathbf{R}$( adica m si n exista si sunt diferite de $\pm 
+            \infty$), unde
+            \[ m = \lim_{x \to \pm \infty} \frac{f(x)}{x}, \qquad n = \lim_{x \to \pm \infty} (f(x) - m 
+            \cdot x)\]
+            \qquad Daca ne da $m = 0$, inseamna ca avem o asimptota orizontala( ar trebuie sa ne mai uitam
+            odata peste calcule)
+        \end{flushleft}
+        
+\subsection*{Verticale}
+    \begin{flushleft}
+        \qquad Fie $f:I \to \mathbf{R}$ si $x_0$ un punct de acumulare, $a \in \mathbf{R}$($\ne \pm
+        \infty$).
+        \newline
+        \qquad Spunem ca dreapta $x = a$ este asimptota verticala la stanga lui $f$, daca: 
+        \[\lim_{x \downarrow a } f(x) = \lim_{x \to a, x < a} f(x) = \pm \infty\]
+         \qquad Spunem ca dreapta $x = a$ este asimptota verticala la dreapta lui $f$, daca: 
+        \[\lim_{x \uparrow a } f(x) = \lim_{x \to a, x > a} f(x) = \pm \infty\] 
+        \qquad Daca avem asimptota verticala la stanga si dreapta atunci, spunem ca dreapta $x = a$ este 
+        asimptota verticala la graficului lui $f$.
+    \end{flushleft}
+    
+\subsection*{Ecuatia tangentei la grafic}
+    \begin{flushleft}
+        \qquad Ecuatia tangentei la graficul lui $f$ intr-un punct de abscisa $x_0$ are formula:
+        \[y - f(x_0) = f(x_0)^\prime(x - x_0)\].
+    \end{flushleft}
+    
+\section*{Formule de calcul si anumite observatii}
+    \begin{flushleft}
+        $(a - b)\cdot (a + b) = a^2 - b^2$ \newline
+        $(a+b)^2 = a^2 + 2\cdot a\cdot b + b^2$ \newline
+        $(a-b)^2 = a^2 - 2\cdot a\cdot b + b^2$ \newline
+        $ln(e) = 1$ , $ln(1) = ln(e^0) = 0$ , $ln(0) = - \infty (conventie)$ \newline
+        $arctg(0) = 0$ , $arctg(1) = \frac{\pi}{4}$ \newline
+        Ecuatia $e^x = 0$ \textbf{NU} are solutii in $\mathbf{R}$. \newline
+        Ecuatia $e^x = 1$ are unica solutie $x = 0$ \newline
+        $\lim\limits_{x \to \pm \infty} \frac{1}{x} = \frac{1}{\pm \infty} = 0$ \newline
+        $\lim\limits_{x \to \infty} e^x = \infty$ \textbf{SI}  $\lim\limits_{x \to -\infty} e^x = 0$
+    \end{flushleft}
+
+\section*{Idei uzuale pentru c - uri}
+\begin{enumerate}[1)]
+    \item   Demonstrati ca $a \leq f(x) \leq b, \quad \forall x \in [x_0, x_1]$
+        \item[] Facem tabelul de variatie si aratam ca a si b sunt efectiv valorile pentru punctele de
+                minim si maxim( cand este un interval mare care contine macar intr-o parte $\infty$)
+                (aici este necesar sa facem si limitele in capete ca sa spunem ca punctele gasite sun
+                globale).\\
+                Sau daca avem un interval mai mic aratam ca pe intervalul $[x_0, x_1]$ functia $f$ este
+                monotona( crescatoare sau descrescatoare) si ca $f(x_0) = a, f(x_1) = b$, de unde iese
+                concluzia. 
+
+    \item   Aratati ca $f(x) \geq \frac{1}{e}, \quad \forall x \in [x_0, x_1]$ 
+        \item[] Facem tabelul si aratam ca punctul de minim pe $[x_0, x_1]$ are valoarea $\frac{1}{e}$.
+        
+    \item   Aratati ca $f(x) \leq 23, \quad \forall x \in [x_0, x_1]$ 
+        \item[] Facem tabelul si aratam ca punctul de maxim pe $[x_0, x_1]$ are valoarea \textit{23}.
+
+    \item   Aratati ca $f(x) \geq x^2 - 3, \quad \forall x \in [x_0,x_1]$
+        \item[] Ducem ce e dupa "$\geq$" in partea stanga, adica $f(x) - x^2 +3 \geq 0$. \\
+                Notam cu $g(x) = f(x) - x^2 +3$, facem tabelul de variatie si aratam ca $g(x)^\prime \geq
+                0$, \, $\forall x \in [x_0,x_1]$.
+                
+    \item   Aratati ca $f(x) \leq e^{2x} - 2\cdot \pi, \quad \forall x \in [x_0,x_1]$
+        \item[] Ducem ce e dupa "$\leq$" in partea stanga, adica $f(x) - e^{2x} + 2\cdot \pi.$ \\
+                Notam cu $g(x) = f(x) -  e^{2x} + \, 2\cdot \pi$, facem tabelul de variatie si aratam ca 
+                $g(x)^\prime \leq 0$, \,$\forall x \in [x_0,x_1]$.
+
+    \item   Determinati multimea de valori ale functiei $f$.
+        \item[] Tabel de variatie + limite in capete si multimea de valori este de fapt "pe unde se plimba
+                $f$ -ul " cu ajutorul punctelor de minim,minim( ar trebui sa obtinem puncte globale).
+                
+    \item   Determinati intervalele de monotonie ale functiei $f$.
+        \item[] Facem tabel si acolo unde apare + inseamna ca $f(x)$ este crescatoare, si acolo unde apare
+                - inseamna ca $f(x)$ este descrescatoare.( daca sunt mai multe intervale cu + sau - vom
+                reuni ( $\cup$) intervalele). \textbf{Important!} este sa mentionam in scris pe ce 
+                interval e crescatoare/descrecatoare, adica: \underline{$f$ este crescatoare} pe $[-12, 24]$
+                si \underline{$f$ este descrescatoare} pe $(-\infty,-12) \cup (24, \infty)$.
+                
+    \item   Aratati ca $f$ e convexa pe $\mathbf{R}$. 
+        \item[] Daca trebuie sa aratam ca $f$ e convexa/concava pe tot domeniul de definitie, ne asteptam
+                ca $f$ sa nu aiba puncte de inflexiune, adica $f(x)'' = 0$ nu are solutii reale( sau avem
+                derivate de genul $\frac{23}{x^2 - 3x}$ care nu are puncte de inflexiune).
+   \item    Aratati ca $a \leq f(x) + f(y) \leq b$, pentru $\forall x,y \in \mathbf{R} $.
+        \item[] Vom face tabelul de variatie si ne asteptam ca $\frac{a}{2}$ sa fie punct de minim si ca
+                $\frac{b}{2}$ sa fie punct de maxim daca $f$ este crescatoare si invers daca $f$ este
+                descrescatoare.\\
+                Vom scrie ca: 
+                \begin{gather*}
+                    f(x) \: \text{pe} \: [x_0,x_1] \: \text{este crescatoare atunci:}  \\
+                    \Rightarrow \frac{a}{2} \leq f(x) \leq \frac{b}{2}, \forall x \in \mathbf{R} \\
+                    \Rightarrow \frac{a}{2} \leq f(y) \leq \frac{b}{2}, \forall y \in \mathbf{R} \\
+                    \Longrightarrow  \frac{a}{2} +  \frac{a}{2} \leq f(x) + f(y) \leq \frac{b}{2} + \frac{b}
+                    {2},
+                    \forall x,y \in \mathbf{R} \\
+                    \text{adica, } \: a \leq f(x) + f(y) \leq b, \forall x,y \in \mathbf{R}, \text{de unde
+                    reiese si concluzia problemei.}
+                \end{gather*}
+                Analog si pentru cand $f(x)$ este descrescatoare pe $[x_0, x_1]$.
+                
+\end{enumerate}
+
+\end{document}
+
